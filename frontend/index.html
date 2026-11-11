@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <title>دستیار</title>
+    <meta
+      name="description"
+      content="دستیار، دستیار هوشمند فارسی برای نوشتن، کدنویسی و پاسخ به پرسش‌های روزمره."
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="دستیار" />
+    <meta
+      property="og:description"
+      content="دستیار، دستیار هوشمند فارسی برای نوشتن، کدنویسی و پاسخ به پرسش‌های روزمره."
+    />
+    <meta property="og:image" content="/logo/dastyar-mark.jpg" />
+    <meta property="og:locale" content="fa_IR" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/logo/dastyar-mark.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      // OAuth callback: save token/error BEFORE React mounts, so RequireAuth
+      // cannot bounce to /login and drop ?token= from the URL.
+      (function () {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var token = params.get('token');
+          var oauthError = params.get('error');
+          if (token) {
+            localStorage.setItem('dastyar_token', token);
+            params.delete('token');
+          }
+          if (oauthError) {
+            sessionStorage.setItem('dastyar_oauth_error', oauthError);
+            params.delete('error');
+          }
+          if (token || oauthError) {
+            var qs = params.toString();
+            window.location.replace(window.location.pathname + (qs ? '?' + qs : ''));
+            return;
+          }
+        } catch (e) { /* ignore */ }
+
+        // Resolve the stored theme before the first paint to avoid a flash of the wrong palette.
+        try {
+          var stored = window.localStorage.getItem('dastyar_theme');
+          var preference = stored === 'light' || stored === 'dark' || stored === 'system' ? stored : 'system';
+          var resolved =
+            preference === 'system'
+              ? window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light'
+              : preference;
+          document.documentElement.setAttribute('data-theme', resolved);
+          document.documentElement.style.colorScheme = resolved;
+        } catch (error) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <p style="font-family: Vazirmatn, Tahoma, sans-serif; padding: 24px; direction: rtl">
+        برای استفاده از دستیار، جاوااسکریپت را در مرورگر خود فعال کنید.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

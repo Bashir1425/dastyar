@@ -1,0 +1,33 @@
+interface LogoProps {
+  size?: number
+  className?: string
+}
+
+/**
+ * Dastyar mark — Persian «د» + spark + accent dot.
+ * Uses currentColor so it follows the theme ink.
+ */
+export function Logo({ size = 28, className = '' }: LogoProps) {
+  return (
+    <svg
+      viewBox="0 0 64 64"
+      width={size}
+      height={size}
+      fill="none"
+      role="img"
+      aria-label="دستیار"
+      className={className}
+    >
+      <path
+        d="M22 18 C22 16 24 14 26 14 L34 14 C41 14 46 19 46 27 C46 36 39 43 30 43 L26 43 C24 43 22 41 22 39 C22 37 24 35 26 35 L30 35 C34 35 37 32 37 27 C37 23 35 21 32 21 L26 21 C24 21 22 20 22 18 Z"
+        fill="currentColor"
+        transform="translate(4 4)"
+      />
+      <path
+        d="M40 10 L41.6 14.4 L46 16 L41.6 17.6 L40 22 L38.4 17.6 L34 16 L38.4 14.4 Z"
+        fill="currentColor"
+      />
+      <circle cx="49" cy="12" r="4" fill="#0F62FE" />
+    </svg>
+  )
+}
