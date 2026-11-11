@@ -107,7 +107,7 @@ OPENROUTER_MODEL=google/gemini-2.0-flash-lite-001
 
 | مدل | توضیح |
 |---|---|
-| `google/gemini-2.0-flash-lite-001` | پیش‌فرض — سریع و دقیق |
+| `google/gemini-2.5-flash-lite` | پیش‌فرض — سریع و دقیق |
 | `meta-llama/llama-3.1-8b-instant` | خیلی سریع |
 | `google/gemini-2.5-flash` | تعادل سرعت/کیفیت |
 

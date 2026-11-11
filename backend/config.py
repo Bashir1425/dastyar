@@ -15,7 +15,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 BASE_DIR = Path(__file__).resolve().parent
 
 DEFAULT_BASE_URL = "https://openrouter.ai/api/v1"
-DEFAULT_MODEL = "google/gemini-2.0-flash-lite-001"
+DEFAULT_MODEL = "google/gemini-2.5-flash-lite"
 DEFAULT_FRONTEND_URL = "http://localhost:5173"
 DEFAULT_BACKEND_URL = "http://localhost:8000"
 
